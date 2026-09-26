@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="960" viewBox="0 0 1600 960" role="img" aria-labelledby="title desc">
+  <title id="title">Arquitectura objetivo de GalacticApp</title>
+  <desc id="desc">Aplicación web con React Leaflet y OpenStreetMap para administración y coordinación, aplicación móvil React Native para técnicos, Nginx, API Node.js con Express y MongoDB.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#526477"/>
+    </marker>
+    <marker id="arrowLight" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#8b9aaa"/>
+    </marker>
+    <style>
+      text { font-family: "Segoe UI", Arial, sans-serif; fill: #172b3a; }
+      .title { font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #526477; }
+      .section { font-size: 13px; font-weight: 700; letter-spacing: 1.1px; fill: #526477; }
+      .card-title { font-size: 20px; font-weight: 700; }
+      .label { font-size: 14px; fill: #526477; }
+      .small { font-size: 15px; fill: #536879; }
+      .logo-label { font-size: 14px; font-weight: 600; fill: #405363; }
+      .card { fill: #fff; stroke: #d7e0e7; stroke-width: 1.5; }
+      .soft { fill: #f4f7f9; stroke: #d7e0e7; stroke-width: 1.5; }
+      .line { fill: none; stroke: #526477; stroke-width: 2.5; marker-end: url(#arrow); }
+      .line-light { fill: none; stroke: #8b9aaa; stroke-width: 2; stroke-dasharray: 7 6; marker-end: url(#arrowLight); }
+      .flow-pill { fill: #fff; stroke: #c8d3dc; stroke-width: 1; }
+      .flow-text { font-size: 13px; font-weight: 700; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="960" fill="#f6f8fa"/>
+  <rect x="0" y="0" width="1600" height="12" fill="#38a3a5"/>
+
+  <text x="64" y="76" class="title">Arquitectura objetivo de GalacticApp</text>
+  <text x="64" y="108" class="subtitle">Dos experiencias de usuario, una API y una fuente central de datos</text>
+  <rect x="1320" y="48" width="216" height="34" rx="17" fill="#e1f2ef"/>
+  <text x="1428" y="70" text-anchor="middle" class="section" fill="#176d68">VERSION FINAL PROPUESTA</text>
+
+  <text x="64" y="174" class="section">APLICACIONES CLIENTE</text>
+  <text x="492" y="174" class="section">ACCESO</text>
+  <text x="838" y="174" class="section">SERVIDOR DE APLICACION</text>
+  <text x="1365" y="174" class="section">PERSISTENCIA</text>
+
+  <rect x="64" y="204" width="350" height="218" rx="12" class="card"/>
+  <rect x="64" y="204" width="7" height="218" rx="3" fill="#61dafb"/>
+  <circle cx="105" cy="247" r="23" fill="#e9faff"/>
+  <image x="91" y="233" width="28" height="28" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMTQ5RUNBIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UmVhY3Q8L3RpdGxlPjxwYXRoIGQ9Ik0xNC4yMyAxMi4wMDRhMi4yMzYgMi4yMzYgMCAwIDEtMi4yMzUgMi4yMzYgMi4yMzYgMCAwIDEtMi4yMzYtMi4yMzYgMi4yMzYgMCAwIDEgMi4yMzUtMi4yMzYgMi4yMzYgMCAwIDEgMi4yMzYgMi4yMzZ6bTIuNjQ4LTEwLjY5Yy0xLjM0NiAwLTMuMTA3Ljk2LTQuODg4IDIuNjIyLTEuNzgtMS42NTMtMy41NDItMi42MDItNC44ODctMi42MDItLjQxIDAtLjc4My4wOTMtMS4xMDYuMjc4LTEuMzc1Ljc5My0xLjY4MyAzLjI2NC0uOTczIDYuMzY1QzEuOTggOC45MTcgMCAxMC40MiAwIDEyLjAwNGMwIDEuNTkgMS45OSAzLjA5NyA1LjA0MyA0LjAzLS43MDQgMy4xMTMtLjM5IDUuNTg4Ljk4OCA2LjM4LjMyLjE4Ny42OS4yNzUgMS4xMDIuMjc1IDEuMzQ1IDAgMy4xMDctLjk2IDQuODg4LTIuNjI0IDEuNzggMS42NTQgMy41NDIgMi42MDMgNC44ODcgMi42MDMuNDEgMCAuNzgzLS4wOSAxLjEwNi0uMjc1IDEuMzc0LS43OTIgMS42ODMtMy4yNjMuOTczLTYuMzY1QzIyLjAyIDE1LjA5NiAyNCAxMy41OSAyNCAxMi4wMDRjMC0xLjU5LTEuOTktMy4wOTctNS4wNDMtNC4wMzIuNzA0LTMuMTEuMzktNS41ODctLjk4OC02LjM4LS4zMTgtLjE4NC0uNjg4LS4yNzctMS4wOTItLjI3OHptLS4wMDUgMS4wOXYuMDA2Yy4yMjUgMCAuNDA2LjA0NC41NTguMTI3LjY2Ni4zODIuOTU1IDEuODM1LjczIDMuNzA0LS4wNTQuNDYtLjE0Mi45NDUtLjI1IDEuNDQtLjk2LS4yMzYtMi4wMDYtLjQxNy0zLjEwNy0uNTM0LS42Ni0uOTA1LTEuMzQ1LTEuNzI3LTIuMDM1LTIuNDQ3IDEuNTkyLTEuNDggMy4wODctMi4yOTIgNC4xMDUtMi4yOTV6bS05Ljc3LjAyYzEuMDEyIDAgMi41MTQuODA4IDQuMTEgMi4yOC0uNjg2LjcyLTEuMzcgMS41MzctMi4wMiAyLjQ0Mi0xLjEwNy4xMTctMi4xNTQuMjk4LTMuMTEzLjUzOC0uMTEyLS40OS0uMTk1LS45NjQtLjI1NC0xLjQyLS4yMy0xLjg2OC4wNTQtMy4zMi43MTQtMy43MDcuMTktLjA5LjQtLjEyNy41NjMtLjEzMnptNC44ODIgMy4wNWMuNDU1LjQ2OC45MS45OTIgMS4zNiAxLjU2NC0uNDQtLjAyLS44OS0uMDM0LTEuMzQ1LS4wMzQtLjQ2IDAtLjkxNS4wMS0xLjM2LjAzNC40NC0uNTcyLjg5NS0xLjA5NiAxLjM0NS0xLjU2NXpNMTIgOC4xYy43NCAwIDEuNDc3LjAzNCAyLjIwMi4wOTMuNDA2LjU4Mi44MDIgMS4yMDMgMS4xODMgMS44Ni4zNzIuNjQuNzEgMS4yOSAxLjAxOCAxLjk0Ni0uMzA4LjY1NS0uNjQ2IDEuMzEtMS4wMTMgMS45NS0uMzguNjYtLjc3MyAxLjI4OC0xLjE4IDEuODctLjcyOC4wNjMtMS40NjYuMDk4LTIuMjEuMDk4LS43NCAwLTEuNDc3LS4wMzUtMi4yMDItLjA5My0uNDA2LS41ODItLjgwMi0xLjIwNC0xLjE4My0xLjg2LS4zNzItLjY0LS43MS0xLjI5LTEuMDE4LTEuOTQ2LjMwMy0uNjU3LjY0Ni0xLjMxMyAxLjAxMy0xLjk1NC4zOC0uNjYuNzczLTEuMjg2IDEuMTgtMS44NjguNzI4LS4wNjQgMS40NjYtLjA5OCAyLjIxLS4wOTh6bS0zLjYzNS4yNTRjLS4yNC4zNzctLjQ4Ljc2My0uNzA0IDEuMTYtLjIyNS4zOS0uNDM1Ljc4Mi0uNjM1IDEuMTc0LS4yNjUtLjY1Ni0uNDktMS4zMS0uNjc2LTEuOTQ3LjY0LS4xNSAxLjMxNS0uMjgzIDIuMDE1LS4zODZ6bTcuMjYgMGMuNjk1LjEwMyAxLjM2NS4yMyAyLjAwNi4zODctLjE4LjYzMi0uNDA1IDEuMjgyLS42NiAxLjkzMy0uMi0uMzktLjQxLS43ODMtLjY0LTEuMTc0LS4yMjUtLjM5Mi0uNDY1LS43NzQtLjcwNS0xLjE0NnptMy4wNjMuNjc1Yy40ODQuMTUuOTQ0LjMxNyAxLjM3NS40OTggMS43MzIuNzQgMi44NTIgMS43MDggMi44NTIgMi40NzYtLjAwNS43NjgtMS4xMjUgMS43NC0yLjg1NyAyLjQ3NS0uNDIuMTgtLjg4LjM0Mi0xLjM1NS40OTMtLjI4LS45NTgtLjY0Ni0xLjk1Ni0xLjEtMi45OC40NS0xLjAxNy44MS0yLjAxIDEuMDg1LTIuOTY0em0tMTMuMzk1LjAwNGMuMjc4Ljk2LjY0NSAxLjk1NyAxLjEgMi45OC0uNDUgMS4wMTctLjgxMiAyLjAxLTEuMDg2IDIuOTY0LS40ODQtLjE1LS45NDQtLjMxOC0xLjM3LS41LTEuNzMyLS43MzctMi44NTItMS43MDYtMi44NTItMi40NzQgMC0uNzY4IDEuMTItMS43NDIgMi44NTItMi40NzYuNDItLjE4Ljg4LS4zNDIgMS4zNTYtLjQ5NHptMTEuNjc4IDQuMjhjLjI2NS42NTcuNDkgMS4zMTIuNjc2IDEuOTQ4LS42NC4xNTctMS4zMTYuMjktMi4wMTYuMzkuMjQtLjM3NS40OC0uNzYyLjcwNS0xLjE1OC4yMjUtLjM5LjQzNS0uNzg4LjYzNi0xLjE4em0tOS45NDUuMDJjLjIuMzkyLjQxLjc4My42NCAxLjE3NS4yMy4zOS40NjUuNzcyLjcwNSAxLjE0My0uNjk1LS4xMDItMS4zNjUtLjIzLTIuMDA2LS4zODYuMTgtLjYzLjQwNi0xLjI4Mi42Ni0xLjkzM3pNMTcuOTIgMTYuMzJjLjExMi40OTMuMi45NjguMjU0IDEuNDIzLjIzIDEuODY4LS4wNTQgMy4zMi0uNzE0IDMuNzA4LS4xNDcuMDktLjMzOC4xMjgtLjU2My4xMjgtMS4wMTIgMC0yLjUxNC0uODA3LTQuMTEtMi4yOC42ODYtLjcyIDEuMzctMS41MzYgMi4wMi0yLjQ0IDEuMTA3LS4xMTggMi4xNTQtLjMgMy4xMTMtLjU0ZW0tMTEuODMuMDFjLjk2LjIzNCAyLjAwNi40MTUgMy4xMDcuNTMyLjY2LjkwNSAxLjM0NSAxLjcyNyAyLjAzNSAyLjQ0Ni0xLjU5NSAxLjQ4My0zLjA5MiAyLjI5NS00LjExIDIuMjk1LS4yMi0uMDA1LS40MDYtLjA1LS41NTMtLjEzMi0uNjY2LS4zOC0uOTU1LTEuODM0LS43My0zLjcwMy4wNTQtLjQ2LjE0Mi0uOTQ0LjI1LTEuNDM4em00LjU2LjY0Yy40NC4wMi44OS4wMzQgMS4zNDUuMDM0LjQ2IDAgLjkxNS0uMDEgMS4zNi0uMDM0LS40NC41NzItLjg5NSAxLjA5NS0xLjM0NSAxLjU2NS0uNDU1LS40Ny0uOTEtLjk5My0xLjM2LTEuNTY1eiIvPjwvc3ZnPg=="/>
+  <text x="142" y="253" class="card-title">Aplicación web</text>
+  <circle cx="105" cy="247" r="16" fill="#e9faff"/>
+  <g transform="translate(105 247)" fill="none" stroke="#149eca" stroke-width="1.5">
+    <ellipse rx="13" ry="4.5"/>
+    <ellipse rx="13" ry="4.5" transform="rotate(60)"/>
+    <ellipse rx="13" ry="4.5" transform="rotate(120)"/>
+    <circle r="2.5" fill="#149eca" stroke="none"/>
+  </g>
+  <text x="92" y="294" class="label">Administrador y coordinador</text>
+  <line x1="92" y1="314" x2="386" y2="314" stroke="#e4eaf0"/>
+  <image x="94" y="337" width="25" height="25" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMTQ5RUNBIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UmVhY3Q8L3RpdGxlPjxwYXRoIGQ9Ik0xNC4yMyAxMi4wMDRhMi4yMzYgMi4yMzYgMCAwIDEtMi4yMzUgMi4yMzYgMi4yMzYgMCAwIDEtMi4yMzYtMi4yMzYgMi4yMzYgMCAwIDEgMi4yMzUtMi4yMzYgMi4yMzYgMCAwIDEgMi4yMzYgMi4yMzZ6bTIuNjQ4LTEwLjY5Yy0xLjM0NiAwLTMuMTA3Ljk2LTQuODg4IDIuNjIyLTEuNzgtMS42NTMtMy41NDItMi42MDItNC44ODctMi42MDItLjQxIDAtLjc4My4wOTMtMS4xMDYuMjc4LTEuMzc1Ljc5My0xLjY4MyAzLjI2NC0uOTczIDYuMzY1QzEuOTggOC45MTcgMCAxMC40MiAwIDEyLjAwNGMwIDEuNTkgMS45OSAzLjA5NyA1LjA0MyA0LjAzLS43MDQgMy4xMTMtLjM5IDUuNTg4Ljk4OCA2LjM4LjMyLjE4Ny42OS4yNzUgMS4xMDIuMjc1IDEuMzQ1IDAgMy4xMDctLjk2IDQuODg4LTIuNjI0IDEuNzggMS42NTQgMy41NDIgMi42MDMgNC44ODcgMi42MDMuNDEgMCAuNzgzLS4wOSAxLjEwNi0uMjc1IDEuMzc0LS43OTIgMS42ODMtMy4yNjMuOTczLTYuMzY1QzIyLjAyIDE1LjA5NiAyNCAxMy41OSAyNCAxMi4wMDRjMC0xLjU5LTEuOTktMy4wOTctNS4wNDMtNC4wMzIuNzA0LTMuMTEuMzktNS41ODctLjk4OC02LjM4LS4zMTgtLjE4NC0uNjg4LS4yNzctMS4wOTItLjI3OHptLS4wMDUgMS4wOXYuMDA2Yy4yMjUgMCAuNDA2LjA0NC41NTguMTI3LjY2Ni4zODIuOTU1IDEuODM1LjczIDMuNzA0LS4wNTQuNDYtLjE0Mi45NDUtLjI1IDEuNDQtLjk2LS4yMzYtMi4wMDYtLjQxNy0zLjEwNy0uNTM0LS42Ni0uOTA1LTEuMzQ1LTEuNzI3LTIuMDM1LTIuNDQ3IDEuNTkyLTEuNDggMy4wODctMi4yOTIgNC4xMDUtMi4yOTV6bS05Ljc3LjAyYzEuMDEyIDAgMi41MTQuODA4IDQuMTEgMi4yOC0uNjg2LjcyLTEuMzcgMS41MzctMi4wMiAyLjQ0Mi0xLjEwNy4xMTctMi4xNTQuMjk4LTMuMTEzLjUzOC0uMTEyLS40OS0uMTk1LS45NjQtLjI1NC0xLjQyLS4yMy0xLjg2OC4wNTQtMy4zMi43MTQtMy43MDcuMTktLjA5LjQtLjEyNy41NjMtLjEzMnptNC44ODIgMy4wNWMuNDU1LjQ2OC45MS45OTIgMS4zNiAxLjU2NC0uNDQtLjAyLS44OS0uMDM0LTEuMzQ1LS4wMzQtLjQ2IDAtLjkxNS4wMS0xLjM2LjAzNC40NC0uNTcyLjg5NS0xLjA5NiAxLjM0NS0xLjU2NXpNMTIgOC4xYy43NCAwIDEuNDc3LjAzNCAyLjIwMi4wOTMuNDA2LjU4Mi44MDIgMS4yMDMgMS4xODMgMS44Ni4zNzIuNjQuNzEgMS4yOSAxLjAxOCAxLjk0Ni0uMzA4LjY1NS0uNjQ2IDEuMzEtMS4wMTMgMS45NS0uMzguNjYtLjc3MyAxLjI4OC0xLjE4IDEuODctLjcyOC4wNjMtMS40NjYuMDk4LTIuMjEuMDk4LS43NCAwLTEuNDc3LS4wMzUtMi4yMDItLjA5My0uNDA2LS41ODItLjgwMi0xLjIwNC0xLjE4My0xLjg2LS4zNzItLjY0LS43MS0xLjI5LTEuMDE4LTEuOTQ2LjMwMy0uNjU3LjY0Ni0xLjMxMyAxLjAxMy0xLjk1NC4zOC0uNjYuNzczLTEuMjg2IDEuMTgtMS44NjguNzI4LS4wNjQgMS40NjYtLjA5OCAyLjIxLS4wOTh6bS0zLjYzNS4yNTRjLS4yNC4zNzctLjQ4Ljc2My0uNzA0IDEuMTYtLjIyNS4zOS0uNDM1Ljc4Mi0uNjM1IDEuMTc0LS4yNjUtLjY1Ni0uNDktMS4zMS0uNjc2LTEuOTQ3LjY0LS4xNSAxLjMxNS0uMjgzIDIuMDE1LS4zODZ6bTcuMjYgMGMuNjk1LjEwMyAxLjM2NS4yMyAyLjAwNi4zODctLjE4LjYzMi0uNDA1IDEuMjgyLS42NiAxLjkzMy0uMi0uMzktLjQxLS43ODMtLjY0LTEuMTc0LS4yMjUtLjM5Mi0uNDY1LS43NzQtLjcwNS0xLjE0NnptMy4wNjMuNjc1Yy40ODQuMTUuOTQ0LjMxNyAxLjM3NS40OTggMS43MzIuNzQgMi44NTIgMS43MDggMi44NTIgMi40NzYtLjAwNS43NjgtMS4xMjUgMS43NC0yLjg1NyAyLjQ3NS0uNDIuMTgtLjg4LjM0Mi0xLjM1NS40OTMtLjI4LS45NTgtLjY0Ni0xLjk1Ni0xLjEtMi45OC40NS0xLjAxNy44MS0yLjAxIDEuMDg1LTIuOTY0em0tMTMuMzk1LjAwNGMuMjc4Ljk2LjY0NSAxLjk1NyAxLjEgMi45OC0uNDUgMS4wMTctLjgxMiAyLjAxLTEuMDg2IDIuOTY0LS40ODQtLjE1LS45NDQtLjMxOC0xLjM3LS41LTEuNzMyLS43MzctMi44NTItMS43MDYtMi44NTItMi40NzQgMC0uNzY4IDEuMTItMS43NDIgMi44NTItMi40NzYuNDItLjE4Ljg4LS4zNDIgMS4zNTYtLjQ5NHptMTEuNjc4IDQuMjhjLjI2NS42NTcuNDkgMS4zMTIuNjc2IDEuOTQ4LS42NC4xNTctMS4zMTYuMjktMi4wMTYuMzkuMjQtLjM3NS40OC0uNzYyLjcwNS0xLjE1OC4yMjUtLjM5LjQzNS0uNzg4LjYzNi0xLjE4em0tOS45NDUuMDJjLjIuMzkyLjQxLjc4My42NCAxLjE3NS4yMy4zOS40NjUuNzcyLjcwNSAxLjE0My0uNjk1LS4xMDItMS4zNjUtLjIzLTIuMDA2LS4zODYuMTgtLjYzLjQwNi0xLjI4Mi42Ni0xLjkzM3pNMTcuOTIgMTYuMzJjLjExMi40OTMuMi45NjguMjU0IDEuNDIzLjIzIDEuODY4LS4wNTQgMy4zMi0uNzE0IDMuNzA4LS4xNDcuMDktLjMzOC4xMjgtLjU2My4xMjgtMS4wMTIgMC0yLjUxNC0uODA3LTQuMTEtMi4yOC42ODYtLjcyIDEuMzctMS41MzYgMi4wMi0yLjQ0IDEuMTA3LS4xMTggMi4xNTQtLjMgMy4xMTMtLjU0ZW0tMTEuODMuMDFjLjk2LjIzNCAyLjAwNi40MTUgMy4xMDcuNTMyLjY2LjkwNSAxLjM0NSAxLjcyNyAyLjAzNSAyLjQ0Ni0xLjU5NSAxLjQ4My0zLjA5MiAyLjI5NS00LjExIDIuMjk1LS4yMi0uMDA1LS40MDYtLjA1LS41NTMtLjEzMi0uNjY2LS4zOC0uOTU1LTEuODM0LS43My0zLjcwMy4wNTQtLjQ2LjE0Mi0uOTQ0LjI1LTEuNDM4em00LjU2LjY0Yy40NC4wMi44OS4wMzQgMS4zNDUuMDM0LjQ2IDAgLjkxNS0uMDEgMS4zNi0uMDM0LS40NC41NzItLjg5NSAxLjA5NS0xLjM0NSAxLjU2NS0uNDU1LS40Ny0uOTEtLjk5My0xLjM2LTEuNTY1eiIvPjwvc3ZnPg=="/>
+  <circle cx="106" cy="349" r="14" fill="#fff"/>
+  <g transform="translate(106 349)" fill="none" stroke="#149eca" stroke-width="1.4">
+    <ellipse rx="12" ry="4"/>
+    <ellipse rx="12" ry="4" transform="rotate(60)"/>
+    <ellipse rx="12" ry="4" transform="rotate(120)"/>
+    <circle r="2.2" fill="#149eca" stroke="none"/>
+  </g>
+  <text x="127" y="355" class="logo-label">React</text>
+  <image x="205" y="337" width="25" height="25" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNjQ2Q0ZGIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+Vml0ZTwvdGl0bGU+PHBhdGggZD0iTTEzLjA1NiAyMy4yMzhhLjU3LjU3IDAgMCAxLTEuMDItLjM1NXYtNS4yMDJjMC0uNjMtLjUxMi0xLjE0My0xLjE0NC0xLjE0M0g1LjE0OGEuNTcuNTcgMCAwIDEtLjQ2NC0uOTAzbDMuNzc3LTUuMjljLjU0LS43NTMgMC0xLjgwNC0uOTMtMS44MDRILjU3YS41NzQuNTc0IDAgMCAxLS41NDMtLjc0Ni42LjYgMCAwIDEgLjA4LS4xNTdMNS4wMDguNzhhLjU3LjU3IDAgMCAxIC40NjctLjI0aDE0LjU4OWEuNTcuNTcgMCAwIDEgLjQ2Ni45MDNsLTMuNzc4IDUuMjljLS41NC43NTUgMCAxLjgwNi45MyAxLjgwNmg1Ljc0NWMuMjM4IDAgLjQyNC4xMzguNTEzLjMyMmEuNTYuNTYgMCAwIDEtLjA2My42MDN6Ii8+PC9zdmc+"/>
+  <text x="238" y="355" class="logo-label">Vite</text>
+  <image x="283" y="337" width="25" height="25" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA3RkZGIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TVVJPC90aXRsZT48cGF0aCBkPSJNMjAuMjI5IDE1Ljc5M2EuNjY2LjY2NiAwIDAgMCAuMjQ0LS4yNDMuNjY2LjY2NiAwIDAgMCAuMDktLjMzM2wuMDEyLTMuODU4YS42NjYuNjY2IDAgMCAxIC4wOS0uMzMzLjY2Ni42NjYgMCAwIDEgLjI0NS0uMjQzTDIzIDkuNThhLjY2Ny42NjcgMCAwIDEgLjMzMy0uMDg4LjY2Ny42NjcgMCAwIDEgLjMzMy4wOS42NjcuNjY3IDAgMCAxIC4yNDQuMjQzLjY2Ni42NjYgMCAwIDEgLjA4OS4zMzN2Ny4wMTRhLjY2Ny42NjcgMCAwIDEtLjMzNS41NzhsLTcuODkzIDQuNTM0YS42NjYuNjY2IDAgMCAxLS42NjIgMGwtNi4xOTQtMy41NDJhLjY2Ny42NjcgMCAwIDEtLjI0Ni0uMjQ0LjY2Ny42NjcgMCAwIDEtLjA5LS4zMzV2LTMuNTM3YzAtLjAwNC4wMDQtLjAwNi4wMDgtLjAwNHMuMDA4IDAgLjAwOC0uMDA1di0uMDA0YzAtLjAwMy4wMDItLjAwNS4wMDQtLjAwN2w1LjEwMi0yLjkzYy4wMDQtLjAwMy4wMDItLjAxLS4wMDMtLjAxYS4wMDUuMDA1IDAgMCAxLS4wMDQtLjAwMi4wMDUuMDA1IDAgMCAxLS4wMDEtLjAwNGwuMDEtMy40NjdhLjY2Ny42NjcgMCAwIDAtLjMzMy0uNTguNjY3LjY2NyAwIDAgMC0uNjY3IDBMOC45MTIgOS43OTlhLjY2Ny42NjcgMCAwIDEtLjY2NSAwbC0zLjgwNC0yLjE5YS42NjcuNjY3IDAgMCAwLS45OTkuNTc3djYuMjY3YS42NjcuNjY3IDAgMCAxLS4zMzIuNTc3LjY2Ni42NjYgMCAwIDEtLjMzMi4wOS42NjcuNjY3IDAgMCAxLS4zMzMtLjA4OEwuMzM2IDEzLjgyNWEuNjY3LjY2NyAwIDAgMS0uMjQ2LS4yNDQuNjY3LjY2NyAwIDAgMS0uMDktLjMzNkwuMDE5IDIuMjkyYS42NjcuNjY3IDAgMCAxIC45OTgtLjU3N2w3LjIzIDQuMTUzYS42NjcuNjY3IDAgMCAwIC42NjUgMGw3LjIyOC00LjE1M2EuNjY2LjY2NiAwIDAgMSAuMzMzLS4wODguNjY2LjY2NiAwIDAgMSAuMzMzLjA5LjY2Ny42NjcgMCAwIDEgLjI0NC4yNDQuNjY3LjY2NyAwIDAgMSAuMDg4LjMzM1YxMy4yNWMwIC4xMTctLjAzLjIzMi0uMDg5LjMzNGEuNjY3LjY2NyAwIDAgMS0uMjQ1LjI0NGwtMy43ODUgMi4xOGEuNjY3LjY2NyAwIDAgMC0uMjQ1LjI0NS42NjYuNjY2IDAgMCAwLS4wODkuMzM0LjY2Ny42NjcgMCAwIDAgLjA5LjMzNC42NjYuNjY2IDAgMCAwIC4yNDcuMjQ0bDIuMDg4IDEuMTg5YS42Ny42NyAwIDAgMCAuMzMuMDg3LjY2Ny42NjcgMCAwIDAgLjMzMi0uMDg5bDQuNDU3LTIuNTZabS40MzgtOS44MjhhLjY2Ni42NjYgMCAwIDAgLjA5LjMzNS42NjYuNjY2IDAgMCAwIC4yNDguMjQ0LjY2Ny42NjcgMCAwIDAgLjY3LS4wMDhsMi4wMDEtMS4yYS42NjYuNjY2IDAgMCAwIC4yMzctLjI0My42NjcuNjY3IDAgMCAwIC4wODctLjMyOVYyLjMyYS42NjcuNjY3IDAgMCAwLS4wOTEtLjMzNS42NjcuNjY3IDAgMCAwLS41ODQtLjMzLjY2Ny42NjcgMCAwIDAtLjMzNC4wOTRsLTIgMS4yYS42NjYuNjY2IDAgMCAwLS4yMzguMjQzLjY2OC42NjggMCAwIDAtLjA4Ni4zMjl2Mi40NDVaIi8+PC9zdmc+"/>
+  <text x="313" y="355" class="logo-label">Material UI</text>
+  <image x="94" y="377" width="20" height="20" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMTk5OTAwIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGVhZmxldDwvdGl0bGU+PHBhdGggZD0iTTE3LjY5IDBjLS4zNTUuNTc0LTguNDMyIDQuNzQtMTAuODU2IDguNjQ5LTIuNDI0IDMuOTEtMy4xMTYgNi45ODgtMi4yMzcgOS44ODIuODc5IDIuODkzIDIuNTU5IDIuNzYzIDMuNTE2IDMuNzE3Ljk1OC45NTQgMi4yNTcgMi4xMTMgNC4zMzIgMi4xMTMgNC4zMzIuNjEzIDAgNS4zMzUtMi40MjYgNi42MzgtNy41MDggMS4zMDItNS4wODIuNDQ4LTkuNTMzLS4xMDMtMTEuOTlBMy41IDM1LjM5NSAwIDAgMCAxNy42OSAwem0tLjEzOC44NThsLTkuMjIgMjEuNTg1LS41NzQtLjU3N1oiLz48L3N2Zz4="/>
+  <text x="120" y="393" class="logo-label">React Leaflet</text>
+  <image x="228" y="377" width="20" height="20" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjN0VCQzZGIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+T3BlblN0cmVldE1hcDwvdGl0bGU+PHBhdGggZD0iTTIuNjcyIDIzLjk2OWMtLjM1Mi0uMDg5LS41MzQtLjIzNC0xLjQ3MS0xLjE2OEMuMDg1IDIxLjY4OC4wMTQgMjEuNTc5LjAxOCAyMC45OTljMC0uNjQ1LS4xOTYtLjQxNCAzLjM2OC0zLjk4NiAzLjYtMy42MDggMy40MTUtMy40NTEgNC4wNjQtMy40NDkuMzAyIDAgLjM3OC4wMTYuNjIuMTRsLjI3Ny4xNCAxLjc0NC0xLjc0NC0uMjE4LS4zNDNjLS40MjUtLjY2Mi0uODI1LTEuNjI5LTEuMDA2LTIuNDI5YTcuNjU3IDcuNjU3IDAgMCAxIDEuNDc5LTYuNDRjMi40OS0zLjEyIDYuOTU5LTMuODEyIDEwLjI2LTEuNTg4IDEuODEyIDEuMjE4IDIuOTkgMy4wOTkgMy4zMjggNS4zMTQuMDcuNDY3LjA3IDEuNTc5IDAgMi4wNzRhNy41NTQgNy41NTQgMCAwIDEtMi4yMDUgNC40MDIgNi43MTIgNi43MTIgMCAwIDEtMS45NDMgMS40MDFjLS45NTkuNDgzLTEuNzc1LjcxLTIuODgxLjgwMy0xLjU3My4xMzEtMy4zMi0uMzA1LTQuNjU2LTEuMTYzbC0uMzQzLS4yMTgtMS43NDQgMS43NDQuMTQuMjhjLjEyNS4yNDEuMTQuMzE2LjE0LjYxNy4wMDMuNjUxLjE1Ni40NjctMy40MjYgNC4wNDktMi43NjEgMi43NTYtMy4xODYgMy4xNjQtMy4zOTggMy4yNjEtLjI3MS4xMjUtLjY5LjE3MS0uOTQ1LjEwNnpNMTcuNDg1IDEzLjk1YTYuNDI1IDYuNDI1IDAgMCAwIDQuNjAzLTMuNTFjMS4zOTEtMi44OTkuNDU1LTYuMzA2LTIuMjI3LTguMTA4LS42MzgtLjQzLTEuNTI5LS43OTQtMi4zNjctLjk2Mi0uNTgxLS4xMTctMS44MDktLjEwNC0yLjQxNC4wMjVhNi41OTMgNi41OTMgMCAwIDAtMi40NTIgMS4wNjRjLS40NDQuMzE1LTEuMTc3IDEuMDQ4LTEuNDg3IDEuNDg3YTYuMzg0IDYuMzg0IDAgMCAwIC4zOCA3LjkwNyA2LjQwNiA2LjQwNiAwIDAgMCAzLjkwMSAyLjEzNmMuNTA5LjA3OCAxLjU0Mi4wNTggMi4wNjUtLjAzN3ptLTMuNzM4IDcuMzc2YTgwLjk3IDgwLjk3IDAgMCAxLTIuMTk2LS42NTFjLS4wMjUtLjAyOCAxLjIwNy00LjM5NiAxLjI1Ny00LjQ0OS4wMjMtLjAyNiA0LjI0MiAxLjE1MiA0LjQxNCAxLjIzNi4wNjIuMDI2LS4wMDMuMjg4LS41MjUgMi4xMDJhMzk4LjUxMyAzOTguNTEzIDAgMCAwLS42MzUgMi4yMzZjLS4wMjUuMDg3LS4wNjkuMTU2LS4wOTcuMTU2LS4wMjgtLjAwMy0xLjAyOC0uMjg3LTIuMjE5LS42MzF6bTIuOTEyLjUyNGMwLS4wNTMgMS4yMjctNC4zMzMgMS4yNDYtNC4zNDcuMDQ3LS4wMzQgNC4zMjQtMS4yMyA0LjM0MS0xLjIxMS4wMTkuMDE5LTEuMTk5IDQuMzM3LTEuMjMgNC4zNi0uMDIuMDE5LTQuMTI2IDEuMTkxLTQuMjU5IDEuMjE4LS4wNTQuMDExLS4wOTggMC0uMDk4LS4wMTl6bS03LjEwNS0xLjkxMWMuODQ2LS44NTIgMS41OTktMS42MjcgMS42NzQtMS43MjguMTcxLS4yMTguNDA1LS43MzIuNDcyLTEuMDE1LjAyNi0uMTE4LjA1My0uMzUyLjA1OC0uNTIybC4wMTEtLjMwNy4xODItLjA1MWMuMTAzLS4wMjguMTkzLS4wNDQuMjAyLS4wMzQuMDIzLjAyNS0xLjIwNyA0LjMyMS0xLjI0NiA0LjM2LS4wMi4wMTYtLjY3Ny4yMTMtMS40NjQuNDM2bC0xLjQyNS40MDUgMS41MzctMS41NDJ6bTguMjg5LTMuMDZhMS4zNzEgMS4zNzEgMCAwIDEtLjA1OS0uMTg3bC0uMDQ0LS4xNTYuMTU2LS4wMjhjMS4zMzktLjIyNyAyLjc3Ni0uODU2IDMuOTA4LTEuNzEzLjE2LS4xMjUuMjUyLS4xNzEuMjY1LS4xMzQuMDU0LjE2NS4yNzIuOTUuMjY1Ljk1OS0uMDM0LjAzNC00LjQ4IDEuMjgyLTQuNDkyIDEuMjYxem0tMTUuMDgzLTEuM2MtLjA1LS4wMzktMS4xNzktMy44NjYtMS4yNjQtNC4yOS0uMDE2LS4wODQuMTQ2LS4wNDQgMi4xNzQuNTM2IDIuMTIxLjYwNCAyLjE5Mi42MjkgMi4yMjIuNzQuMDI4LjA5OC4wMTEuMTI5LS4xMjUuMjIzLS4wODQuMDU5LS43NjkuNzI0LTEuNTIzIDEuNDc5YTYzLjg3NyA2My44NzcgMCAwIDEtMS4zOSAxLjM2N2MtLjAxNiAwLS4wNTYtLjAyNS0uMDkzLS4wNTR6bS44MjEtNC4zNzhjLTEuMTg4LS4zNDMtMi4xNjQtLjYyMy0yLjE2Ny0uNjI2LS4wMTYtLjAxMiAxLjI2MS00LjQzMyAxLjI4NS00LjQ2LjAyMi0uMDIyIDQuNDIyIDEuMjExIDQuNDY5IDEuMjUyLjAwOS4wMDktLjI2OSAxLjAxNy0uNjE4IDIuMjM5LS41NzYgMi4wMi0uNjQzIDIuMjI0LS43MjMgMi4yMi0uMDUtLjAwMy0xLjA1OS0uMjg1LTIuMjQ3LS42MjZ6bTIuOTU5LjUzOGMuMDEyLS4wMzEuMjEyLS43MjMuNDQ0LTEuNTM0bC40Mi0xLjQ3Ni4wNTYuMzIxYy4wOTMuNTU2LjI2NSAxLjE4OC40NjQgMS43NDEuMTA2LjI5Ni4xODcuNTM5LjE4MS41NDUtLjAwOC4wMDYtLjMzMi4xMDEtLjcxOS4yMTItLjM4OS4xMDktLjc0MS4yMS0uNzg2LjIyNC0uMDU4LjAxNi0uMDc1LjAwNi0uMDU5LS4wMzR6TTQuOTA1IDYuMTEyYy0xLjE4Ny0uMzM5LTIuMTY3LS42MzUtMi4xOC0uNjU0LS4wNC0uMDYyLTEuMjQ2LTQuMzIxLTEuMjMtNC4zMzguMDI2LS4wMjUgNC4zMSAxLjIwNCA0LjM1MSAxLjI0Ni4wNDcuMDUxIDEuMjggNC4zNzkgMS4yNDYgNC4zNzZMNC45MSA2LjExM3ptMi4xNDgtMS43MTNsLS41MTktMS44MDYtLjA3OC0uMjggMS42OTMtLjQ4M2MuOTM0LS4yNjUgMS43MjQtLjQ5NSAxLjc2LS41MDguMDM0LS4wMTYtLjA4My4xNC0uMjYuMzM2QTguNzI5IDguNzI5IDAgMCAwIDcuNjkgNS4yM2E0LjM0OCA0LjM0OCAwIDAgMC0uMTMyLjU2MWMwIC4yOTMtLjExNS0uMDI1LS41MDUtMS4zOXoiLz48L3N2Zz4="/>
+  <text x="254" y="393" class="logo-label">OpenStreetMap</text>
+
+  <rect x="64" y="464" width="350" height="218" rx="12" class="card"/>
+  <rect x="64" y="464" width="7" height="218" rx="3" fill="#e6a23c"/>
+  <circle cx="105" cy="507" r="23" fill="#fff3df"/>
+  <rect x="97" y="492" width="16" height="29" rx="3" fill="none" stroke="#b77719" stroke-width="2"/>
+  <line x1="102" y1="496" x2="108" y2="496" stroke="#b77719" stroke-width="1.5"/>
+  <circle cx="105" cy="516" r="1.5" fill="#b77719"/>
+  <text x="142" y="513" class="card-title">Aplicación móvil</text>
+  <text x="92" y="554" class="label">Técnico en campo</text>
+  <line x1="92" y1="574" x2="386" y2="574" stroke="#e4eaf0"/>
+  <g transform="translate(106 600)" fill="none" stroke="#149eca" stroke-width="1.4">
+    <ellipse rx="12" ry="4"/>
+    <ellipse rx="12" ry="4" transform="rotate(60)"/>
+    <ellipse rx="12" ry="4" transform="rotate(120)"/>
+    <circle r="2.2" fill="#149eca" stroke="none"/>
+  </g>
+  <text x="127" y="605" class="logo-label">React Native</text>
+  <text x="92" y="630" class="small">App móvil dedicada a técnicos</text>
+  <text x="92" y="654" class="small">Atiende asignaciones y registra jornadas</text>
+
+  <rect x="484" y="310" width="286" height="266" rx="12" fill="#edf7f1" stroke="#b9d9c4" stroke-width="1.5"/>
+  <image x="604" y="339" width="46" height="46" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA5NjM5IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TkdJTlg8L3RpdGxlPjxwYXRoIGQ9Ik0xMiAwTDEuNjA1IDZ2MTJMMTIgMjRsMTAuMzk1LTZWNkwxMiAwem02IDE2LjU5YzAgLjcwNS0uNjQ2IDEuMjktMS41MjkgMS4yOS0uNjMxIDAtMS4zNTEtLjI1NS0xLjgwMS0uODFsLTYtNy4xNDF2Ni42NmMwIC43MjEtLjU3IDEuMjktMS4yNzQgMS4yOUg3LjMyYy0uNzIxIDAtMS4yOS0uNi0xLjI5LTEuMjlWNy40MWMwLS43MDUuNjMtMS4yOSAxLjUtMS4yOS42NDYgMCAxLjM4LjI1NSAxLjgzLjgxbDUuOTcgNy4xNDFWNy40MWMwLS43MjEuNi0xLjI5IDEuMjktMS4yOWguMDc1Yy43MiAwIDEuMjkuNiAxLjI5IDEuMjl2OS4xOEgxOHoiLz48L3N2Zz4="/>
+  <text x="627" y="414" text-anchor="middle" class="card-title">Nginx</text>
+  <text x="627" y="443" text-anchor="middle" class="label">Punto de entrada HTTPS</text>
+  <line x1="520" y1="465" x2="734" y2="465" stroke="#cfe4d5"/>
+  <text x="627" y="495" text-anchor="middle" class="small">Sirve la web React</text>
+  <text x="627" y="518" text-anchor="middle" class="small">Deriva las llamadas /api</text>
+  <text x="627" y="541" text-anchor="middle" class="small">al backend</text>
+
+  <rect x="838" y="204" width="438" height="478" rx="12" class="card"/>
+  <rect x="838" y="204" width="7" height="478" rx="3" fill="#5a9e6f"/>
+  <image x="870" y="229" width="34" height="34" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNUZBMDRFIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+Tm9kZS5qczwvdGl0bGU+PHBhdGggZD0iTTExLjk5OCwyNGMtMC4zMjEsMC0wLjY0MS0wLjA4NC0wLjkyMi0wLjI0N2wtMi45MzYtMS43MzdjLTAuNDM4LTAuMjQ1LTAuMjI0LTAuMzMyLTAuMDgtMC4zODMgYzAuNTg1LTAuMjAzLDAuNzAzLTAuMjUsMS4zMjgtMC42MDRjMC4wNjUtMC4wMzcsMC4xNTEtMC4wMjMsMC4yMTgsMC4wMTdsMi4yNTYsMS4zMzljMC4wODIsMC4wNDUsMC4xOTcsMC4wNDUsMC4yNzIsMGw4Ljc5NS01LjA3NiBjMC4wODItMC4wNDcsMC4xMzQtMC4xNDEsMC4xMzQtMC4yMzhWNi45MjFjMC0wLjA5OS0wLjA1My0wLjE5Mi0wLjEzNy0wLjI0MmwtOC43OTEtNS4wNzJjLTAuMDgxLTAuMDQ3LTAuMTg5LTAuMDQ3LTAuMjcxLDAgTDMuMDc1LDYuNjhDMi45OSw2LjcyOSwyLjkzNiw2LjgyNSwyLjkzNiw2LjkyMXYxMC4xNWMwLDAuMDk3LDAuMDU0LDAuMTg5LDAuMTM5LDAuMjM1bDIuNDA5LDEuMzkyIGMxLjMwNywwLjY1NCwyLjEwOC0wLjExNiwyLjEwOC0wLjg5VjcuNzg3YzAtMC4xNDIsMC4xMTQtMC4yNTMsMC4yNTYtMC4yNTNoMS4xMTVjMC4xMzksMCwwLjI1NSwwLjExMiwwLjI1NSwwLjI1M3YxMC4wMjEgYzAsMS43NDUtMC45NSwyLjc0NS0yLjYwNCwyLjc0NWMtMC41MDgsMC0wLjkwOSwwLTIuMDI2LTAuNTUxTDIuMjgsMTguNjc1Yy0wLjU3LTAuMzI5LTAuOTIyLTAuOTQ1LTAuOTIyLTEuNjA0VjYuOTIxIGMwLTAuNjU5LDAuMzUzLTEuMjc1LDAuOTIyLTEuNjAzbDguNzk1LTUuMDgyYzAuNTU3LTAuMzE1LDEuMjk2LTAuMzE1LDEuODQ4LDBsOC43OTQsNS4wODJjMC41NywwLjMyOSwwLjkyNCwwLjk0NCwwLjkyNCwxLjYwMyB2MTAuMTVjMCwwLjY1OS0wLjM1NCwxLjI3My0wLjkyNCwxLjYwNGwtOC43OTQsNS4wNzhDMTIuNjQzLDIzLjkxNiwxMi4zMjQsMjQsMTEuOTk4LDI0eiBNMTkuMDk5LDEzLjk5MyBjMC0xLjktMS4yODQtMi40MDYtMy45ODctMi43NjNjLTIuNzMxLTAuMzYxLTMuMDA5LTAuNTQ4LTMuMDA5LTEuMTg3YzAtMC41MjgsMC4yMzUtMS4yMzMsMi4yNTgtMS4yMzMgYzEuODA3LDAsMi40NzMsMC4zODksMi43NDcsMS42MDdjMC4wMjQsMC4xMTUsMC4xMjksMC4xOTksMC4yNDcsMC4xOTloMS4xNDFjMC4wNzEsMCwwLjEzOC0wLjAzMSwwLjE4Ni0wLjA4MSBjMC4wNDgtMC4wNTQsMC4wNzQtMC4xMjMsMC4wNjctMC4xOTZjLTAuMTc3LTIuMDk4LTEuNTcxLTMuMDc2LTQuMzg4LTMuMDc2Yy0yLjUwOCwwLTQuMDA0LDEuMDU4LTQuMDA0LDIuODMzIGMwLDEuOTI1LDEuNDg4LDIuNDU3LDMuODk1LDIuNjk1YzIuODgsMC4yODIsMy4xMDMsMC43MDMsMy4xMDMsMS4yNjljMCwwLjk4My0wLjc4OSwxLjQwMi0yLjY0MiwxLjQwMiBjLTIuMzI3LDAtMi44MzktMC41ODQtMy4wMTEtMS43NDJjLTAuMDItMC4xMjQtMC4xMjYtMC4yMTUtMC4yNTMtMC4yMTVoLTEuMTM3Yy0wLjE0MSwwLTAuMjU0LDAuMTEyLTAuMjU0LDAuMjUzIGMwLDEuNDgyLDAuODA2LDMuMjQ4LDQuNjU1LDMuMjQ4QzE3LjUwMSwxNy4wMDcsMTkuMDk5LDE1LjkxLDE5LjA5OSwxMy45OTN6Ii8+PC9zdmc+"/>
+  <text x="917" y="254" class="card-title">API Node.js + Express</text>
+  <text x="870" y="286" class="label">API REST / JSON · HTTPS</text>
+
+  <rect x="870" y="312" width="374" height="92" rx="8" fill="#fff7e8" stroke="#efd9ab"/>
+  <text x="892" y="343" font-size="16" font-weight="700">Autenticación y permisos por rol</text>
+  <text x="892" y="370" class="small">Control de acceso para cada tipo de usuario</text>
+  <text x="892" y="390" class="small">Requisito de la versión final</text>
+
+  <rect x="870" y="424" width="374" height="104" rx="8" class="soft"/>
+  <image x="891" y="444" width="25" height="25" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMjIyMjIyIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+RXhwcmVzczwvdGl0bGU+PHBhdGggZD0iTTEyLjI2MiAxNi42NjZoMS4xNDZsNi45NzUtOS4zMjVIMTkuMjJ6bTkuNzc4IDEuNDQxdi4wMDRsLTQuMzM0LTUuNzA2LS41NTcuNzQgNC44NzMgNi42ODJILjk0NVY0LjE3M2g5LjUwNWw1LjAyNiA2LjcuNTc0LS43NzItNC4zNzQtNS45MjhoLjAwM2wtLjcxOS0uOTQ1SDB2MTcuNTQ0aDI0ek0xMC45MTcgOC43MDVhMy44IDMuOCAwIDAgMC0xLjI5Mi0xLjE4M3EtLjc5Ni0uNDUtMS45MTYtLjQ1Yy0uNzQ2IDAtMS4zNy4xNC0xLjkwNi40MjRhMy43NiAzLjc2IDAgMCAwLTEuMzEgMS4xMiA0LjkgNC45IDAgMCAwLS43NSAxLjU4MSA3LjE3IDcuMTcgMCAwIDAgMCAzLjY5NmMuMTQ4LjU2Ny40MDIgMS4xMDEuNzUgMS41NzNhMy41IDMuNSAwIDAgMCAxLjMxIDEuMDY2cS44MDMuMzkgMS45MDYuMzg5IDEuNzcgMCAyLjczOS0uODY4Ljk2Ni0uODY3IDEuMzI4LTIuNDU3aC0xLjEzOXEtLjI3MSAxLjA4NC0uOTc3IDEuNzM0LS43MDQuNjUxLTEuOTUyLjY1LS44MTIgMC0xLjM5Mi0uMzQyYTMuMSAzLjEgMCAwIDEtLjk1Ny0uODY5IDMuNSAzLjUgMCAwIDEtLjU1MS0xLjE4MiA1IDUgMCAwIDEtLjE3LTEuMTMzIDkgOSAwIDAgMC0uMDE1LS4yODYgNC41IDQuNSAwIDAgMSAuMDE1LS44MjljLjA0Ny0uNDE4LjE0Ny0uODMuMjk2LTEuMjIzQTMuNyAzLjcgMCAwIDEgNS41NCA5LjA1YTIuOSAyLjkgMCAwIDEgLjkyMi0uNzQycS41NDEtLjI4IDEuMjQ2LS4yOGMuNDcgMCAuODY5LjA5MyAxLjIzLjI4cS41NDEuMjgxLjkyMi43NDIuMzc5LjQ2MS41ODcgMS4wNTd0LjIyNSAxLjI0Nkg1LjYyNWwuMDA0Ljk1N2g2LjE4MmE3LjMgNy4zIDAgMCAwLS4xOC0xLjkyNCA0LjkgNC45IDAgMCAwLS43MTUtMS42OHoiLz48L3N2Zz4="/>
+  <text x="925" y="462" font-size="17" font-weight="700" font-style="italic">express</text>
+  <text x="1000" y="462" font-size="16" font-weight="700">Rutas y controladores</text>
+  <text x="892" y="492" class="small">Usuarios · clientes · vehículos · reclamos</text>
+  <text x="892" y="513" class="small">Ubicaciones · jornadas</text>
+
+  <rect x="870" y="548" width="374" height="104" rx="8" fill="#eef5fb" stroke="#cfdeec"/>
+  <circle cx="905" cy="574" r="14" fill="#dceaf7"/>
+  <text x="905" y="580" text-anchor="middle" font-size="15" font-weight="700" fill="#315c83">M</text>
+  <text x="930" y="580" font-size="16" font-weight="700">Mongoose ODM</text>
+  <text x="892" y="608" class="small">Modelos y validaciones</text>
+  <text x="892" y="632" class="small">Lectura y escritura en MongoDB</text>
+
+  <rect x="1360" y="310" width="176" height="266" rx="12" class="card"/>
+  <image x="1414" y="344" width="68" height="52" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNDdBMjQ4IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TW9uZ29EQjwvdGl0bGU+PHBhdGggZD0iTTE3LjE5MyA5LjU1NWMtMS4yNjQtNS41OC00LjI1Mi03LjQxNC00LjU3My04LjExNS0uMjgtLjM5NC0uNTMtLjk1NC0uNzM1LTEuNDQtLjAzNi40OTUtLjA1NS42ODUtLjUyMyAxLjE4NC0uNzIzLjU2Ni00LjQzOCAzLjY4Mi00Ljc0IDEwLjAyLS4yODIgNS45MTIgNC4yNyA5LjQzNSA0Ljg4OCA5Ljg4NGwuMDcuMDVBNzMuNDkgNzMuNDkgMCAwMTExLjkxIDI0aC40ODFjLjExNC0xLjAzMi4yODQtMi4wNTYuNTEtMy4wNy40MTctLjI5Ni42MDQtLjQ2My44NS0uNjkzYTExLjM0MiAxMS4zNDIgMCAwMDMuNjM5LTguNDY0Yy4wMS0uODE0LS4xMDMtMS42NjItLjE5Ny0yLjIxOHptLTUuMzM2IDguMTk1czAtOC4yOTEuMjc1LTguMjljLjIxMyAwIC40OSAxMC42OTUuNDkgMTAuNjk1LS4zODEtLjA0NS0uNzY1LTEuNzYtLjc2NS0yLjQwNXoiLz48L3N2Zz4="/>
+  <text x="1448" y="425" text-anchor="middle" class="card-title">MongoDB</text>
+  <text x="1448" y="453" text-anchor="middle" class="label">Base de datos</text>
+  <line x1="1390" y1="475" x2="1506" y2="475" stroke="#e4eaf0"/>
+  <text x="1448" y="508" text-anchor="middle" class="small">Datos persistentes</text>
+  <text x="1448" y="532" text-anchor="middle" class="small">en red privada</text>
+
+  <rect x="1360" y="616" width="176" height="66" rx="8" fill="#e9f4e9" stroke="#c8dfc8"/>
+  <path d="M1374 636h24v22h-24z M1379 631h24v22" fill="none" stroke="#54865a" stroke-width="2"/>
+  <text x="1407" y="644" font-size="13" font-weight="700">Volumen persistente</text>
+  <text x="1407" y="664" font-size="12" fill="#66798a">Copias de seguridad</text>
+
+  <path d="M414 314H450V370H484" class="line"/>
+  <rect x="414" y="282" width="70" height="26" rx="13" class="flow-pill"/>
+  <text x="449" y="300" class="flow-text">HTTPS</text>
+  <path d="M414 572H450V516H484" class="line"/>
+  <rect x="414" y="586" width="70" height="26" rx="13" class="flow-pill"/>
+  <text x="449" y="604" class="flow-text">HTTPS</text>
+  <path d="M770 443H838" class="line"/>
+  <rect x="771" y="396" width="66" height="40" rx="12" class="flow-pill"/>
+  <text x="804" y="412" class="flow-text">REST /</text>
+  <text x="804" y="429" class="flow-text">JSON</text>
+  <path d="M1276 485H1360" class="line"/>
+  <rect x="1277" y="437" width="82" height="40" rx="12" class="flow-pill"/>
+  <text x="1318" y="453" class="flow-text">lectura</text>
+  <text x="1318" y="470" class="flow-text">escritura</text>
+  <path d="M1448 576V616" class="line-light"/>
+  <rect x="1460" y="584" width="70" height="24" rx="12" class="flow-pill"/>
+  <text x="1495" y="601" class="flow-text">respaldo</text>
+
+  <rect x="64" y="758" width="1472" height="120" rx="12" fill="#eaf0f4"/>
+  <text x="92" y="795" class="section">FLUJO DE EJEMPLO</text>
+  <text x="92" y="830" font-size="15" font-weight="600">El técnico registra una jornada desde el móvil</text>
+  <text x="92" y="855" class="label">La app envía la solicitud por HTTPS; la API valida permisos, guarda los datos en MongoDB y responde a la app.</text>
+  <text x="64" y="920" class="small">Diagrama objetivo: autenticación/autorización y app móvil separada son requisitos de la versión final, no capacidades completas del estado actual.</text>
+</svg>
