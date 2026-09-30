@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="960" viewBox="0 0 1600 960" role="img" aria-labelledby="title desc">
-  <title id="title">Arquitectura objetivo de GalacticApp</title>
+  <title id="title">Arquitectura de GalacticApp</title>
   <desc id="desc">Aplicación web con React Leaflet y OpenStreetMap para administración y coordinación, aplicación móvil React Native para técnicos, Nginx, API Node.js con Express y MongoDB.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
@@ -30,9 +30,6 @@
   <rect x="0" y="0" width="1600" height="12" fill="#38a3a5"/>
 
   <text x="64" y="76" class="title">Arquitectura objetivo de GalacticApp</text>
-  <text x="64" y="108" class="subtitle">Dos experiencias de usuario, una API y una fuente central de datos</text>
-  <rect x="1320" y="48" width="216" height="34" rx="17" fill="#e1f2ef"/>
-  <text x="1428" y="70" text-anchor="middle" class="section" fill="#176d68">VERSION FINAL PROPUESTA</text>
 
   <text x="64" y="174" class="section">APLICACIONES CLIENTE</text>
   <text x="492" y="174" class="section">ACCESO</text>
@@ -154,10 +151,4 @@
   <path d="M1448 576V616" class="line-light"/>
   <rect x="1460" y="584" width="70" height="24" rx="12" class="flow-pill"/>
   <text x="1495" y="601" class="flow-text">respaldo</text>
-
-  <rect x="64" y="758" width="1472" height="120" rx="12" fill="#eaf0f4"/>
-  <text x="92" y="795" class="section">FLUJO DE EJEMPLO</text>
-  <text x="92" y="830" font-size="15" font-weight="600">El técnico registra una jornada desde el móvil</text>
-  <text x="92" y="855" class="label">La app envía la solicitud por HTTPS; la API valida permisos, guarda los datos en MongoDB y responde a la app.</text>
-  <text x="64" y="920" class="small">Diagrama objetivo: autenticación/autorización y app móvil separada son requisitos de la versión final, no capacidades completas del estado actual.</text>
 </svg>
