@@ -6,3 +6,5 @@
 Repos:
 - Frontend: https://github.com/AgusCuevas/Proyecto_Final_UNAHUR_C2-Frontend
 - Backend: https://github.com/SebaBranda/Proyecto_Final_UNAHUR_C2-Backend
+
+![Arquitectura](arquitectura-final.svg)
