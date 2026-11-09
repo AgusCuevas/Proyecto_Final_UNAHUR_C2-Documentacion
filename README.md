@@ -1,6 +1,4 @@
 # Proyecto_Final_UNAHUR_C2
-
-![Arquitectura](arquitectura-final.svg)
 # GalacticApp · Documentación del proyecto
 
 Proyecto Final · Universidad Nacional de Hurlingham
