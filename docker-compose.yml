@@ -1,0 +1,102 @@
+# GalacticApp: MongoDB + backend + frontend.
+#
+# Este archivo vive en el repositorio de documentación. Los tres repositorios tienen que estar
+# clonados en la misma carpeta, uno al lado del otro:
+#   Proyecto_Final_UNAHUR_C2/            <- este archivo
+#   Proyecto_Final_UNAHUR_C2-Backend/
+#   Proyecto_Final_UNAHUR_C2-Frontend/
+#
+# Uso (desde esta carpeta):
+#   docker compose up -d --build        -> levanta todo; la app queda en http://localhost:8080
+#   docker compose ps                   -> estado de los contenedores
+#   docker compose logs -f backend      -> logs del backend
+#
+# No hace falta un archivo .env: todas las variables tienen un valor por defecto (lo que
+# va después de ":-"). Para cambiar alguna, se puede crear un .env en esta carpeta.
+#
+# Base de datos vacía (primera vez o después de "docker compose down -v"):
+# cargar los usuarios demo (admin/admin, coordinador/coordinador, tecnico/tecnico...)
+# ejecutando UNA vez en PowerShell:
+#   $env:SEED_DEMO_DATA="true"; docker compose up -d backend; Remove-Item Env:SEED_DEMO_DATA
+# Solo agrega los datos demo que no existen; nunca modifica ni borra datos cargados.
+# Nombre fijo del proyecto: así los volúmenes (la base de datos) son los mismos sin importar
+# desde qué carpeta se levante.
+name: galacticapp
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: galacticapp-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-change-this-password}
+      MONGO_INITDB_DATABASE: ${MONGO_DB:-galacticapp_db}
+    # Publicado solo en esta computadora (127.0.0.1) para inspeccionar la base con MongoDB Compass.
+    # No cambiar a "27017:27017": quedaría accesible desde la red y permitiría saltear la API.
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
+    networks:
+      - galacticapp
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --quiet --eval \"db.adminCommand('ping').ok\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  backend:
+    build:
+      context: ../Proyecto_Final_UNAHUR_C2-Backend
+      dockerfile: Dockerfile
+    container_name: galacticapp-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HTTPS_ENABLED: "false"
+      # Carga de datos demo al arrancar. Queda en false salvo que se active (ver arriba).
+      SEED_DEMO_DATA: ${SEED_DEMO_DATA:-false}
+      JWT_SECRET: ${JWT_SECRET:-change-this-jwt-secret-with-at-least-32-bytes}
+      MONGO_URI: mongodb://${MONGO_ROOT_USER:-admin}:${MONGO_ROOT_PASSWORD:-change-this-password}@mongodb:27017/${MONGO_DB:-galacticapp_db}?authSource=admin
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - galacticapp
+    expose:
+      - "3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/', r => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  frontend:
+    build:
+      context: ../Proyecto_Final_UNAHUR_C2-Frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: /api
+        VITE_USE_MOCKS: "false"
+    container_name: galacticapp-frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - galacticapp
+
+volumes:
+  mongodb_data:
+  mongodb_config:
+
+networks:
+  galacticapp:
+    driver: bridge
