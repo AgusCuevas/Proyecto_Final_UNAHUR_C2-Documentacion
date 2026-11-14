@@ -141,14 +141,4 @@ Oracle Cloud fue la única opción que cubrió las tres cosas sin costo y sin fe
 | **Plataformas como Render o Railway** | Son más fáciles de usar, pero en el plan gratuito la aplicación se apaga cuando no hay visitas y tarda en volver a arrancar, o directamente lo gratuito es una prueba limitada. Además habría que repartir el sistema en varios servicios (web, API, base de datos y fotos por separado) |
 | **Un servidor pago (VPS)** | Funciona igual que lo que armamos, pero cuesta unos dólares por mes. Para una demo no se justifica |
 
-### Lo que se resigna
-
-Lo gratuito tiene un costo en comodidad, que para una demo es aceptable:
-
-- **Hay que administrar el servidor a mano:** firewall, Docker, certificado y actualizaciones. Una plataforma paga lo hace sola.
-- **No hay copias de seguridad automáticas ni garantía de disponibilidad.** La base de datos vive en el disco de esa única máquina.
-- **La máquina gratuita usa procesador ARM y a veces no hay disponibles** al momento de crearla; hay que reintentar.
-
-Para un sistema en producción, con clientes reales, lo razonable sería pasar a un servicio pago con copias de seguridad y una base de datos administrada. Como todo corre en Docker y las fotos usan la API estándar de S3, ese cambio no requiere tocar el código: se levanta el mismo `docker-compose.yml` en otro servidor y se cambian las variables de entorno.
-
 *Las condiciones de los planes gratuitos cambian seguido. Esta comparación corresponde a noviembre de 2026.*
