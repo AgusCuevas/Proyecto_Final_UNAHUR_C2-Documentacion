@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="990" viewBox="0 0 1100 990" role="img" aria-labelledby="title desc">
+  <title id="title">Despliegue de GalacticApp en Oracle Cloud</title>
+  <desc id="desc">Los pedidos llegan desde internet, pasan por el firewall de Oracle y el de Ubuntu, entran por Caddy, siguen a nginx, de ahí al backend y del backend a MongoDB. El backend guarda las fotos en un bucket de Oracle con la API de S3.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#526477"/>
+    </marker>
+    <marker id="arrowLight" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#8b9aaa"/>
+    </marker>
+    <style>
+      text { font-family: "Segoe UI", Arial, sans-serif; fill: #172b3a; }
+      .title { font-size: 30px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #526477; }
+      .section { font-size: 13px; font-weight: 700; letter-spacing: 1.1px; fill: #526477; }
+      .card-title { font-size: 20px; font-weight: 700; }
+      .small { font-size: 15px; fill: #536879; }
+      .card { fill: #fff; stroke: #d7e0e7; stroke-width: 1.5; }
+      .soft { fill: #f4f7f9; stroke: #d7e0e7; stroke-width: 1.5; }
+      .inner { fill: #eaf0f4; stroke: #c8d3dc; stroke-width: 1.5; stroke-dasharray: 6 5; }
+      .line { fill: none; stroke: #526477; stroke-width: 2.5; marker-end: url(#arrow); }
+      .line-light { fill: none; stroke: #8b9aaa; stroke-width: 2; stroke-dasharray: 7 6; marker-end: url(#arrowLight); }
+      .pill { fill: #fff; stroke: #c8d3dc; stroke-width: 1; }
+      .pill-text { font-size: 13px; font-weight: 700; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="990" fill="#f6f8fa"/>
+  <rect x="0" y="0" width="1100" height="12" fill="#38a3a5"/>
+
+  <text x="50" y="64" class="title">Despliegue de GalacticApp en Oracle Cloud</text>
+
+  <!-- Contenedores -->
+  <rect x="50" y="262" width="600" height="700" rx="14" class="soft"/>
+  <text x="74" y="292" class="section">RED Y SERVIDOR EN ORACLE CLOUD</text>
+
+  <rect x="74" y="556" width="552" height="384" rx="12" class="inner"/>
+  <text x="96" y="584" class="section">DOCKER COMPOSE</text>
+
+  <!-- Flechas principales -->
+  <path d="M350 208V306" class="line"/>
+  <path d="M350 386V426" class="line"/>
+  <path d="M350 506V598" class="line"/>
+  <path d="M350 678V718" class="line"/>
+  <path d="M350 798V838" class="line"/>
+  <path d="M590 758H726" class="line"/>
+
+  <!-- Internet -->
+  <rect x="90" y="130" width="520" height="78" rx="12" class="card"/>
+  <rect x="90" y="130" width="7" height="78" rx="3" fill="#61dafb"/>
+  <text x="118" y="163" class="card-title">Internet</text>
+  <text x="118" y="189" class="small">Navegador (web) y app móvil del técnico</text>
+
+  <!-- Firewalls -->
+  <rect x="90" y="308" width="520" height="78" rx="12" class="card"/>
+  <rect x="90" y="308" width="7" height="78" rx="3" fill="#e6a23c"/>
+  <text x="118" y="341" class="card-title">Firewall de Oracle y firewall de Ubuntu</text>
+  <text x="118" y="367" class="small">Solo dejan pasar los puertos 22, 80 y 443</text>
+
+  <!-- Caddy -->
+  <rect x="90" y="428" width="520" height="78" rx="12" class="card"/>
+  <rect x="90" y="428" width="7" height="78" rx="3" fill="#38a3a5"/>
+  <text x="118" y="461" class="card-title">Caddy</text>
+  <text x="118" y="487" class="small">Pone el HTTPS y renueva el certificado</text>
+
+  <!-- nginx -->
+  <rect x="110" y="600" width="480" height="78" rx="12" class="card"/>
+  <rect x="110" y="600" width="7" height="78" rx="3" fill="#149eca"/>
+  <text x="138" y="633" class="card-title">frontend (nginx)</text>
+  <text x="138" y="659" class="small">Sirve la web y reenvía /api al backend</text>
+
+  <!-- backend -->
+  <rect x="110" y="720" width="480" height="78" rx="12" class="card"/>
+  <rect x="110" y="720" width="7" height="78" rx="3" fill="#3c873a"/>
+  <text x="138" y="753" class="card-title">backend (API)</text>
+  <text x="138" y="779" class="small">Sesiones, permisos y reglas de negocio</text>
+
+  <!-- mongodb -->
+  <rect x="110" y="840" width="480" height="78" rx="12" class="card"/>
+  <rect x="110" y="840" width="7" height="78" rx="3" fill="#2e7d32"/>
+  <text x="138" y="873" class="card-title">mongodb</text>
+  <text x="138" y="899" class="small">Base de datos, en un volumen persistente</text>
+
+  <!-- Bucket -->
+  <rect x="730" y="720" width="320" height="78" rx="12" class="card"/>
+  <rect x="730" y="720" width="7" height="78" rx="3" fill="#c74634"/>
+  <text x="758" y="753" class="card-title">Bucket de Oracle</text>
+  <text x="758" y="779" class="small">Fotos · Object Storage con API S3</text>
+  <text x="730" y="826" class="section">FUERA DEL SERVIDOR · PRIVADO</text>
+
+  <!-- Etiquetas de las flechas -->
+  <rect x="366" y="222" width="150" height="24" rx="12" class="pill"/>
+  <text x="441" y="239" class="pill-text">HTTPS · puerto 443</text>
+
+  <rect x="366" y="518" width="150" height="24" rx="12" class="pill"/>
+  <text x="441" y="535" class="pill-text">HTTP · puerto 8080</text>
+
+  <rect x="366" y="686" width="150" height="24" rx="12" class="pill"/>
+  <text x="441" y="703" class="pill-text">/api · puerto 3000</text>
+
+  <rect x="366" y="806" width="110" height="24" rx="12" class="pill"/>
+  <text x="421" y="823" class="pill-text">puerto 27017</text>
+
+  <rect x="604" y="724" width="108" height="24" rx="12" class="pill"/>
+  <text x="658" y="741" class="pill-text">API S3 · HTTPS</text>
+
+</svg>
